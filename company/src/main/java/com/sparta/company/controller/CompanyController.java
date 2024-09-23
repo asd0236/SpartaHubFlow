@@ -59,7 +59,7 @@ public class CompanyController {
         return companyService.searchCompany(companyName, page, size, sortBy);
     }
 
-    @PatchMapping("/companyId")
+    @PatchMapping("/{companyId}")
     @Operation(summary = "업체 수정", description = "업체를 수정합니다.")
     public CompanyDto.Response modifyCompany(@RequestHeader("User-Id") Long userId,
                                              @RequestHeader("User-Role") String userRole,
@@ -68,7 +68,7 @@ public class CompanyController {
         return companyService.modifyCompany(userId, userRole, companyId, companyDto);
     }
 
-    @DeleteMapping("/companyId")
+    @DeleteMapping("/{companyId}")
     @Operation(summary = "업체 삭제", description = "업체를 삭제합니다.")
     public CompanyDto.DeleteResponse deleteCompany(@RequestHeader("User-Id") Long userId,
                                                    @RequestHeader("User-Role") String userRole,
